@@ -1,5 +1,7 @@
 package Classwork;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,6 @@ import static org.junit.Assert.assertTrue;
 
 
 public class KinopoiskTest {
-    static WebDriver chromeDriver;
     String kinopoiskUrl = "https://www.kinopoisk.ru/";
     KinopoiskMainPage kinopoiskMainPage;
     SearchResultsPage searchResultsPage;
@@ -27,12 +28,10 @@ public class KinopoiskTest {
     private String movieDirectorXpath = "//div[@id = 'infoTable']//td[@itemprop = 'director']/a";
 
 
-    @Before
-    public void setUp(){
-        chromeDriver = new ChromeDriver();
-        chromeDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        chromeDriver.manage().window().fullscreen();
-    }
+//    @Before
+//    public void setUp(){
+//        WebDriverRunner.getWebDriver().manage().window().fullscreen();
+//    }
 
 //    @Test
 //    public void shouldFindMovieByName(){
@@ -83,22 +82,10 @@ public class KinopoiskTest {
 
     @Test
     public void shouldVerifyPopupOnHover(){
-        chromeDriver.get(kinopoiskUrl);
-        kinopoiskMainPage = new KinopoiskMainPage(chromeDriver);
-        kinopoiskMainPage.hoverElementInBlockCash(1);
+        kinopoiskMainPage = Selenide.open(kinopoiskUrl, KinopoiskMainPage.class);
+        String expectedValue = kinopoiskMainPage.hoverElementInBlockCashAndReturnName(1);
+        String actualValue = kinopoiskMainPage.clickOnPopupWithSelectedMovie();
         kinopoiskMainPage.clickOnPopupWithSelectedMovie();
     }
 
-
-
-
-    @After
-    public void closeDriver(){
-        chromeDriver.close();
-    }
-
-    @AfterClass
-    public static void afterAll(){
-        chromeDriver.quit();
-    }
 }

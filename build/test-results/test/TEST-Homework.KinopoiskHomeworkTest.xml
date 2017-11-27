@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Homework.KinopoiskHomeworkTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-11-23T16:34:20" hostname="MacBook-Air-mac.local" time="95.984">
+  <properties/>
+  <testcase name="shouldVerifyPopupOnHover" classname="Homework.KinopoiskHomeworkTest" time="15.694"/>
+  <testcase name="shouldFindMovieByName2" classname="Homework.KinopoiskHomeworkTest" time="25.289"/>
+  <testcase name="shouldFindLastSequel" classname="Homework.KinopoiskHomeworkTest" time="35.095"/>
+  <testcase name="shouldFindMoviePosterAndDirector" classname="Homework.KinopoiskHomeworkTest" time="19.904"/>
+  <system-out><![CDATA[Элемент с номером 7 отсутствует в списке
+https://st.kp.yandex.net/images/film_iphone/iphone360_105948.jpg
+эдгар райт
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 26590
+Only local connections are allowed.
+ноя 23, 2017 7:34:22 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Attempting bi-dialect session, assuming Postel's Law holds true on the remote end
+ноя 23, 2017 7:34:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 13517
+Only local connections are allowed.
+ноя 23, 2017 7:34:36 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Attempting bi-dialect session, assuming Postel's Law holds true on the remote end
+ноя 23, 2017 7:34:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 20464
+Only local connections are allowed.
+ноя 23, 2017 7:35:01 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Attempting bi-dialect session, assuming Postel's Law holds true on the remote end
+ноя 23, 2017 7:35:03 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+Starting ChromeDriver 2.32.498537 (cb2f855cbc7b82e20387eaf9a43f6b99b6105061) on port 11380
+Only local connections are allowed.
+ноя 23, 2017 7:35:37 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Attempting bi-dialect session, assuming Postel's Law holds true on the remote end
+ноя 23, 2017 7:35:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+]]></system-err>
+</testsuite>

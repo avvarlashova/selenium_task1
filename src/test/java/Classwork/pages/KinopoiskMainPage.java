@@ -1,5 +1,8 @@
 package Classwork.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,32 +11,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 public class KinopoiskMainPage extends BasePage {
     private String searchButtonXpath = "//input[@class = 'header-search-partial-component__button']";
     private String searchFieldXpath = "//input[@class = 'header-search-partial-component__search-field']";
     private String blockCashElementCss = "#rigth_box_weekend_rus .dl";
     private String popupId = "popup_info";
 
-    public KinopoiskMainPage(WebDriver driver){
-        super(driver);
-    }
 
     public void searchInKinopoisk(String searchText){
-        WebElement searchField = driver.findElement(By.xpath(searchFieldXpath));
+        WebElement searchField = $(By.xpath(searchFieldXpath));
         searchField.sendKeys(searchText);
         clickOnElement(By.xpath(searchButtonXpath));
     }
 
-    public void hoverElementInBlockCash(int elementNumber) {
-        List<WebElement> blockCashElements = driver.findElements(By.cssSelector(blockCashElementCss));
-        Actions action = new Actions(driver);
-        action.moveToElement(blockCashElements.get(elementNumber)).build().perform();
+    public String hoverElementInBlockCashAndReturnName(int elementNumber) {
+        SelenideElement element = $$(By.cssSelector(blockCashElementCss)).get(elementNumber);
+        element.hover();
+        return element.$("s").getText();
     }
 
-    public void clickOnPopupWithSelectedMovie() {
-        WebDriverWait waiter = new WebDriverWait(driver, 10);
-        //WebElement popup = waiter.until(ExpectedConditions.visibilityOf(driver.findElement(By.id(popupId))));
-        WebElement popup = driver.findElement(By.id(popupId));
-        popup.click();
+    public String clickOnPopupWithSelectedMovie() {
+        return $(By.id(popupId)).shouldBe(Condition.visible).getText();
     }
 }
